@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spotify - Web Player: Music for everyone</title>
+    <link rel="icon" href="favicon.ico" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="utility.css" />
+  </head>
+  <body>
+    <div class="container flex bg-black">
+      <div class="left">
+        <div class="close-menu">
+          <img
+            src="assets/close-btn.svg"
+            class="invert close-menu-icon"
+            alt="Close menu"
+          />
+        </div>
+        <div class="home bg-gray border m-1 p-1">
+          <ul>
+            <li class="flex m-1">
+              <img class="invert" src="assets/logo.svg" alt="Logo" />
+              Spotify
+            </li>
+            <li class="flex m-1">
+              <img class="invert" src="assets/home.svg" alt="Home Logo" />
+              Home
+            </li>
+            <li class="flex m-1">
+              <img class="invert" src="assets/search.svg" alt="Search Logo" />
+              Search
+            </li>
+          </ul>
+        </div>
+        <div class="library bg-gray border m-1 p-1">
+          <div class="library-head flex">
+            Your Library
+            <img class="invert" src="assets/plus.svg" alt="Add icon" />
+          </div>
+
+          <div class="library-cards"></div>
+          <div class="left-side-footer">
+            <div class="left-footer flex">
+              <div>
+                <a href="https://www.spotify.com/in-en/legal/"
+                  ><span>Legal</span></a
+                >
+              </div>
+              <div>
+                <a href="https://www.spotify.com/in-en/safetyandprivacy/"
+                  ><span>Safety & Privacy Center</span></a
+                >
+              </div>
+              <div>
+                <a href="https://www.spotify.com/in-en/legal/privacy-policy/"
+                  ><span>Privacy Policy</span></a
+                >
+              </div>
+              <div>
+                <a href="https://www.spotify.com/in-en/legal/cookies-policy/"
+                  ><span>Cookies</span></a
+                >
+              </div>
+              <div>
+                <a href="https://www.spotify.com/in-en/legal/privacy-policy/#s3"
+                  ><span>About Ads</span></a
+                >
+              </div>
+              <div>
+                <a href="https://www.spotify.com/in-en/accessibility/"
+                  ><span>Accessibility</span></a
+                >
+              </div>
+            </div>
+            <a
+              class="cookies"
+              href="https://www.spotify.com/legal/cookies-policy/"
+              target="_blank"
+              rel="noopener"
+            >
+              <span>Cookies</span>
+            </a>
+            <!-- <button class="english-btn bg-gray p-1">
+              <img class="invert" src="assets/earth.svg" alt="Globe logo" />
+              English
+            </button> -->
+          </div>
+        </div>
+      </div>
+      <div class="right bg-gray border">
+        <div class="right-header flex p-1 aic">
+          <div class="nav flex">
+            <img
+              src="assets/sidebar-menu.svg"
+              class="invert menu-option"
+              alt="Click to open sidebar"
+            />
+            <!-- <img
+              class="invert-gray"
+              src="assets/left-arrow.svg"
+              alt="Left-side-icon"
+            />
+            <img
+              class="invert-gray"
+              src="assets/right-arrow.svg"
+              alt="Right-side-icon"
+            /> -->
+          </div>
+          <div class="buttons">
+            <button class="btn signup-btn">Sign Up</button>
+            <button class="btn login-btn">Log in</button>
+          </div>
+        </div>
+
+        <div class="spotify-playlist">
+          <h1>Spotify Playlist</h1>
+          <div class="card-contianer">
+            <!-- <div data-folder="cs" class="card">
+              <div class="card-img-section">
+                <img
+                  src="https://i.scdn.co/image/ab67616d00001e021344800458a38197bfc721f3"
+                  alt=""
+                />
+                <img
+                  class="play-button"
+                  src="assets/play-button.svg"
+                  alt="Play button"
+                />
+              </div>
+              <h2>Jhol</h2>
+              <p title="Maanu , Annural Khalid">Maanu , Annural Khalid</p>
+            </div>
+
+            <div data-folder="ncs" class="card">
+              <div class="card-img-section">
+                <img
+                  src="https://i.scdn.co/image/ab67616d00001e021344800458a38197bfc721f3"
+                  alt=""
+                />
+                <img
+                  class="play-button"
+                  src="assets/play-button.svg"
+                  alt="Play button"
+                />
+              </div>
+              <h2>Jhol</h2>
+              <p title="Maanu , Annural Khalid">Maanu , Annural Khalid</p>
+            </div> -->
+          </div>
+        </div>
+        <div class="playbar">
+          <div class="playbar-songinfo"></div>
+          <div class="songbtns flex jcc aic">
+            <img
+              id="previousSong"
+              class=""
+              src="assets/previous-button.svg"
+              alt="Previous button"
+            />
+            <img
+              class="invert"
+              id="play-button"
+              src="assets/play-button.svg"
+              alt="Play button"
+            />
+            <!-- <img src="assets/resume.svg" class="invert"/> -->
+            <img
+              id="nextSong"
+              class=""
+              src="assets/next-button.svg"
+              alt="Next button"
+            />
+          </div>
+          <div class="duration flex">
+            <div class="seekbar">
+              <div class="circle"></div>
+            </div>
+            <div class="timeline"></div>
+          </div>
+          <div class="volume">
+            <!-- <div class="volume-seekbar">
+              <div class="volume-circle"></div>
+            </div> -->
+            <div class="volume-bar">
+              <input type="range" class="volume-range" name="volume-range" />
+            </div>
+            <img
+              class="invert volume-btn"
+              src="assets/volume.svg"
+              alt="Volume button"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
