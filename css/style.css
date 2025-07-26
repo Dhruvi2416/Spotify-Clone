@@ -410,6 +410,7 @@ input[type="range"].show {
   }
   .menu-option {
     display: block;
+    cursor: pointer;
   }
   .close-menu-icon {
     display: block;
