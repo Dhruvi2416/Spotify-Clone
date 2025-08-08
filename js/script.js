@@ -6,7 +6,7 @@ let cardContainer = document.querySelector(".card-contianer");
 
 async function getSongs(folder) {
   currFolder = folder;
-  let a = await fetch(`http://127.0.0.1:3000/${folder}/`);
+  let a = await fetch(`/${folder}`);
   let response = await a.text();
 
   let div = document.createElement("div");
@@ -105,7 +105,7 @@ function formatTime(seconds) {
 }
 
 async function displayAlbums() {
-  let a = await fetch(`http://127.0.0.1:3000/songs/`);
+  let a = await fetch(`/songs/`);
   let response = await a.text();
 
   let div = document.createElement("div");
@@ -115,41 +115,42 @@ async function displayAlbums() {
 
   let array = Array.from(anchors);
 
-  for (let folder = 0; folder < array.length; folder++) {
-    let e = array[folder];
+  for (let index = 0; index < array.length; index++) {
+    let e = array[index];
 
     if (e.href.includes("/songs/")) {
       let folder = e.href.split("/").slice(-2)[0];
+      try {
+        let jsonFile = await fetch(`/songs/${folder}/info.json`);
+        let response = await jsonFile.json();
 
-      let jsonFile = await fetch(
-        `http://127.0.0.1:3000/songs/${folder}/info.json`
-      );
-      let response = await jsonFile.json();
-
-      cardContainer.innerHTML =
-        cardContainer.innerHTML +
-        `<div data-folder=${folder} class="card">
-              <div class="card-img-section">
-                <img
-                  src="/songs/${folder}/cover.jpg"
-                  alt="Cover image"
-                />
-                <img
-                  class="play-button"
-                  src="assets/play-button.svg"
-                  alt="Play button"
-                />
-              </div>
-              <h2 title=${response.title}>${response.title}</h2>
-              <p title=${response.description}>${response.description}</p>
-            </div>`;
+        cardContainer.innerHTML =
+          cardContainer.innerHTML +
+          `<div data-folder=${folder} class="card">
+          <div class="card-img-section">
+            <img
+              src="/songs/${folder}/cover.jpg"
+              alt="Cover image"
+            />
+            <img
+              class="play-button"
+              src="assets/play-button.svg"
+              alt="Play button"
+            />
+          </div>
+          <h2 title=${response.title}>${response.title}</h2>
+          <p title=${response.description}>${response.description}</p>
+        </div>`;
+      } catch (err) {
+        console.log(err);
+      }
     }
   }
 }
 
 async function main() {
   //List of all songs
-  await getSongs("songs/WeddingSongs/");
+  await getSongs("songs/WeddingSongs");
 
   playMusic(songs[0], true);
 
