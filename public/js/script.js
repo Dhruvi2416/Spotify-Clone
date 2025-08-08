@@ -18,9 +18,15 @@ let libraryCards = document.querySelector(".library-cards");
 
 // Define your album folders here
 const albumFolders = [
+  "BarSongs",
+  "GarbaHits",
+  "HappyHits",
+  "LoveSongs",
+  "PartySongs",
+  "RomanticSongs",
+  "SlowMusic",
   "WeddingSongs",
-  "NCS",
-  "CS",
+
   // Add more folder names as needed
 ];
 
