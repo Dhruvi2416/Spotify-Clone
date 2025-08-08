@@ -33,7 +33,7 @@ async function getSongs(folder) {
       //   alt=""
       // />
       `<div class="song-card flex p-1">
-             <div class="invert"><img src="assets/music.svg" alt="Music logo"></div>
+             <div class="invert"><img src="../assets/music.svg" alt="Music logo"></div>
               <div class="song-info">
                 <h5>${songs[song].replaceAll("%20", " ")}</h5>
                 <p>Maanu , Annural Khalid</p>
@@ -44,7 +44,7 @@ async function getSongs(folder) {
                 <img
                   class="invert"
                   id="playButton"
-                  src="assets/play-button.svg"
+                  src="../assets/play-button.svg"
                   alt="Play button"
                 />
               </div>
@@ -72,7 +72,7 @@ const playMusic = (track, pause = false) => {
 
   if (!pause) {
     currentSong.play();
-    playButton.src = "assets/resume-button.svg";
+    playButton.src = "../assets/resume-button.svg";
   }
 
   document.querySelector(".playbar-songinfo").innerHTML = decodeURI(track);
@@ -81,11 +81,11 @@ const playMusic = (track, pause = false) => {
 
 const playPauseDisplayButton = (play_button) => {
   if (currentSong.paused) {
-    play_button.src = "assets/resume-button.svg";
+    play_button.src = "../assets/resume-button.svg";
 
     currentSong.play();
   } else {
-    play_button.src = "assets/play-button.svg";
+    play_button.src = "../assets/play-button.svg";
 
     currentSong.pause();
   }
@@ -134,7 +134,7 @@ async function displayAlbums() {
             />
             <img
               class="play-button"
-              src="assets/play-button.svg"
+              src="../assets/play-button.svg"
               alt="Play button"
             />
           </div>
@@ -220,9 +220,9 @@ async function main() {
     let volumeImg = document.querySelector(".volume-btn");
 
     if (currentSong.volume === 0) {
-      volumeImg.src = "/assets/mute.svg";
+      volumeImg.src = "../assets/mute.svg";
     } else {
-      volumeImg.src = "/assets/volume.svg";
+      volumeImg.src = "../assets/volume.svg";
     }
   });
 
