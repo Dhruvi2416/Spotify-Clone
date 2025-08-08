@@ -105,7 +105,7 @@ function formatTime(seconds) {
 }
 
 async function displayAlbums() {
-  let a = await fetch(`/songs/`);
+  let a = await fetch(`../songs/`);
   let response = await a.text();
 
   let div = document.createElement("div");
@@ -121,7 +121,7 @@ async function displayAlbums() {
     if (e.href.includes("/songs/")) {
       let folder = e.href.split("/").slice(-2)[0];
       try {
-        let jsonFile = await fetch(`/songs/${folder}/info.json`);
+        let jsonFile = await fetch(`../songs/${folder}/info.json`);
         let response = await jsonFile.json();
 
         cardContainer.innerHTML =
@@ -129,7 +129,7 @@ async function displayAlbums() {
           `<div data-folder=${folder} class="card">
           <div class="card-img-section">
             <img
-              src="/songs/${folder}/cover.jpg"
+              src="../songs/${folder}/cover.jpg"
               alt="Cover image"
             />
             <img
@@ -150,7 +150,7 @@ async function displayAlbums() {
 
 async function main() {
   //List of all songs
-  await getSongs("songs/WeddingSongs");
+  await getSongs("../songs/WeddingSongs");
 
   playMusic(songs[0], true);
 
@@ -232,7 +232,7 @@ async function main() {
       // console.log(e.currentTarget.dataset.folder);
       //current target means that element where event is listned here card and target is that element where element is clicked like img btn etc of card
 
-      songs = await getSongs(`songs/${e.currentTarget.dataset.folder}/`);
+      songs = await getSongs(`../songs/${e.currentTarget.dataset.folder}/`);
       playMusic(songs[0]);
     });
   });
