@@ -6,7 +6,7 @@ let cardContainer = document.querySelector(".card-contianer");
 
 async function getSongs(folder) {
   currFolder = folder;
-  let a = await fetch(`http://127.0.0.1:3000/${folder}/`);
+  let a = await fetch(`/${folder}/`);
   let response = await a.text();
 
   let div = document.createElement("div");
@@ -105,7 +105,7 @@ function formatTime(seconds) {
 }
 
 async function displayAlbums() {
-  let a = await fetch(`http://127.0.0.1:3000/songs/`);
+  let a = await fetch(`/songs/`);
   let response = await a.text();
 
   let div = document.createElement("div");
@@ -120,9 +120,7 @@ async function displayAlbums() {
     if (e.href.includes("/songs/")) {
       let folder = e.href.split("/").slice(-2)[0];
 
-      let jsonFile = await fetch(
-        `http://127.0.0.1:3000/songs/${folder}/info.json`
-      );
+      let jsonFile = await fetch(`/songs/${folder}/info.json`);
       let response = await jsonFile.json();
 
       cardContainer.innerHTML =
@@ -148,7 +146,7 @@ async function displayAlbums() {
 
 async function main() {
   //List of all songs
-  await getSongs("songs/WeddingSongs/");
+  await getSongs("songs/WeddingSongs");
 
   playMusic(songs[0], true);
 
